@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css" />
+    <title>Home</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"
+      defer
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/c6c209c8da.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js" type="module" defer></script>
+  </head>
+  <body
+    id="body"
+    class="bg-black text-white overflow-x-hidden opacity-0 overflow-y-hidden scrollbar-none"
+  >
+    <div
+      id="loading-container"
+      class="w-screen h-screen fixed left-0 top-0 bg-[#ddd] text-black flex items-center justify-center z-30"
+    >
+      <div
+        id="loader"
+        class="h-[40px] w-[50%] md:w-[40%] md:h-[50px] lg:w-[20%] 2xl:h-[7vh] flex justify-between items-center"
+      >
+        <div id="loader-1" class="w-[70%] h-full bg-slate-400">
+          <div id="progress-1" class="w-0 h-full bg-black"></div>
+        </div>
+        <div id="loader-2" class="w-[30%] h-full bg-slate-400">
+          <div id="progress-2" class="w-0 h-full bg-black"></div>
+        </div>
+      </div>
+      <div
+        class="counter-container fixed bottom-5 left-5 text-[60px] md:text-[80px] lg:text-[120px] 2xl:text-[10vw] flex gap-[.1em] md:gap-1"
+      >
+        <div class="counter counter-1 flex flex-col overflow-y-hidden">
+          <div class="num">0</div>
+          <div class="num">1</div>
+        </div>
+        <div class="counter counter-2 overflow-y-hidden"></div>
+        <div class="counter counter-3 overflow-y-hidden"></div>
+      </div>
+    </div>
+    <header
+      class="flex justify-between items-center fixed top-0 left-0 w-full h-fit px-6 py-4 z-20 bg-gradient-to-b from-black from-20% to-transparent md:px-8 md:py-6 lg:text-xl 2xl:px-[5vw] 2xl:py-[4vh]"
+    >
+      <img
+        src="./assets/logo.svg"
+        alt="logo"
+        class="w-[33px] h-auto lg:w-[50px] cursor-pointer 2xl:w-[4vw]"
+      />
+      <ul
+        class="hidden lg:flex gap-10 mx-auto 2xl:text-[1.7vw] 2xl:gap-[3.5vw]"
+      >
+        <li id="link-insights"><button>Insights</button></li>
+        <li id="link-awards"><button>Awards</button></li>
+        <li id="link-work"><button>Work</button></li>
+        <li id="link-team"><button>Team</button></li>
+      </ul>
+      <span id="link-contact" class="cursor-pointer 2xl:text-[1.7vw] px-3"
+        >Contact</span
+      >
+    </header>
+    <main class="2xl:mb-[4vw]">
+      <section id="first-trigger" class="w-full overflow-hidden h-screen mb-20">
+        <div
+          class="crossed-line-container sticky top-0 left-0 w-full custom-height bg-gradient-to-t overflow-hidden z-10 bg-black"
+        >
+          <div
+            class="vertical-line absolute left-1/2 top-0 transform -translate-x-1/2 bg-white h-screen w-[3px] 2xl:w-[.3vw]"
+          ></div>
+          <div
+            class="horizontal-line absolute top-1/2 left-1/2 transform -translate-x-1/2 bg-white w-[300vw] h-[3px] rotate-[20deg] origin-center 2xl:h-[.3vw]"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent z-10 lg:h-[8rem]"
+          ></div>
+        </div>
+        <div
+          class="be-able-container flex items-center flex-col justify-between gap-14 px-8 md:flex-row md:gap-0 md:px-8 2xl:px-[5vw]"
+        >
+          <svg
+            viewBox="0 0 327 165"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-[79px] w-[156px] lg:h-[165px] lg:w-[326px] 2xl:w-[23vw] 2xl:h-[13vw]"
+          >
+            <path
+              d="M0 164.991V0H87.7082C99.674 0 109.245 1.69731 116.359 5.03038C123.106 8.18756 128.711 13.4114 131.983 19.6466C135.256 25.8818 136.694 32.0907 136.826 39.9704C136.966 48.2547 135.712 55.6244 133.922 59.9952C131.834 65.0784 128.738 69.5547 124.299 73.3363C120.86 76.2648 115.087 79.4044 109.912 80.3366V81.2952C118.684 82.8958 125.158 85.2263 130.211 89.3332C134.677 92.9565 138.256 97.6175 140.177 103.026C142.177 108.654 142.94 114.555 142.94 121.591C142.94 127.51 142.177 133.103 140.668 138.379C139.151 143.656 136.519 148.291 132.773 152.292C129.018 156.294 123.755 159.407 116.974 161.641C110.192 163.883 101.613 165 91.2436 165H0V164.991ZM26.5721 70.5045H79.0672C88.296 70.5045 94.893 69.5371 98.6389 68.2531C102.543 66.9164 106.157 64.366 108.236 60.1007C110.096 56.2928 110.736 51.6757 110.736 46.2408C110.736 40.1639 109.964 35.9866 108.21 32.3897C106.455 28.7928 103.315 25.8818 98.6125 24.2901C94.0684 22.751 87.524 22.0651 79.0672 22.0651H26.5721V70.5045ZM26.5721 143.164H83.822C92.2788 143.164 98.5336 142.434 103.464 140.613C108.227 138.863 111.789 136.04 113.701 132.364C115.614 128.688 116.517 124.071 116.517 117.836C116.517 111.759 115.57 106.79 113.5 103.114C111.421 99.438 107.99 96.7557 103.209 95.076C98.4196 93.3962 91.9629 92.5608 83.822 92.5608H26.5721V143.164Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M196.01 164.991V0H324.967V22.0651H222.574V70.7507H313.633V92.8158H222.574V142.935H326.099V165H196.01V164.991Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+          </svg>
+          <svg
+            viewBox="0 0 712 165"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-[79px] w-[342px] max-w-full shrink-0 lg:h-[165px] lg:w-[712px] 2xl:w-[50vw] 2xl:h-[13vw]"
+          >
+            <path
+              d="M0.410156 164.991L72.4594 0H105.014L176.818 164.991H147.833L129.639 122.541H46.1504L27.4823 164.991H0.410156ZM55.4844 100.484H120.305L88.9518 23.9822H87.557L55.4844 100.484Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M219.408 164.991V0H307.116C319.082 0 328.653 1.69731 335.768 5.03038C342.514 8.18756 348.119 13.4114 351.392 19.6466C354.664 25.8818 356.103 32.0907 356.234 39.9704C356.374 48.2547 355.12 55.6244 353.33 59.9952C351.243 65.0784 348.146 69.5547 343.707 73.3363C340.268 76.2648 334.496 79.4044 329.32 80.3366V81.2952C338.092 82.8958 344.567 85.2263 349.62 89.3332C354.085 92.9565 357.664 97.6175 359.585 103.026C361.585 108.654 362.349 114.555 362.349 121.591C362.349 127.51 361.585 133.103 360.076 138.379C358.559 143.656 355.927 148.291 352.181 152.292C348.427 156.294 343.163 159.407 336.382 161.641C329.601 163.883 321.021 165 310.652 165H219.408V164.991ZM245.98 70.5045H298.475C307.704 70.5045 314.301 69.5371 318.047 68.2531C321.951 66.9164 325.565 64.366 327.644 60.1007C329.504 56.2928 330.144 51.6757 330.144 46.2408C330.144 40.1639 329.372 35.9866 327.618 32.3897C325.863 28.7928 322.723 25.8818 318.021 24.2901C313.477 22.751 306.932 22.0651 298.475 22.0651H245.98V70.5045ZM245.98 143.164H303.23C311.687 143.164 317.942 142.434 322.872 140.613C327.635 138.863 331.197 136.04 333.11 132.364C335.022 128.688 335.926 124.071 335.926 117.836C335.926 111.759 334.978 106.79 332.908 103.114C330.829 99.438 327.399 96.7557 322.618 95.076C317.828 93.3962 311.371 92.5608 303.23 92.5608H245.98V143.164Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M415.301 164.991V0H443.163V140.578H542.117V164.991H415.301Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M581.908 164.991V0H710.865V22.0651H608.472V70.7507H699.531V92.8158H608.472V142.935H711.997V165H581.908V164.991Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+          </svg>
+        </div>
+        <div
+          class="be-able-void h-[var(--be-able-h)] w-full 2xl:px-[5vw]"
+        ></div>
+        <div
+          class="be-able-paragraph flex flex-col items-center gap-16 px-4 md:flex-row md:grid md:grid-cols-2 md:gap-10 lg:gap-20 md:px-8 2xl:gap-[8vw] 2xl:px-[5vw]"
+        >
+          <svg
+            viewBox="0 0 712 165"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-[79px] w-[342px] max-w-full shrink-0 lg:h-[165px] lg:w-[712px] 2xl:w-[50vw] 2xl:h-[13vw]"
+          >
+            <path
+              d="M0.410156 164.991L72.4594 0H105.014L176.818 164.991H147.833L129.639 122.541H46.1504L27.4823 164.991H0.410156ZM55.4844 100.484H120.305L88.9518 23.9822H87.557L55.4844 100.484Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M219.408 164.991V0H307.116C319.082 0 328.653 1.69731 335.768 5.03038C342.514 8.18756 348.119 13.4114 351.392 19.6466C354.664 25.8818 356.103 32.0907 356.234 39.9704C356.374 48.2547 355.12 55.6244 353.33 59.9952C351.243 65.0784 348.146 69.5547 343.707 73.3363C340.268 76.2648 334.496 79.4044 329.32 80.3366V81.2952C338.092 82.8958 344.567 85.2263 349.62 89.3332C354.085 92.9565 357.664 97.6175 359.585 103.026C361.585 108.654 362.349 114.555 362.349 121.591C362.349 127.51 361.585 133.103 360.076 138.379C358.559 143.656 355.927 148.291 352.181 152.292C348.427 156.294 343.163 159.407 336.382 161.641C329.601 163.883 321.021 165 310.652 165H219.408V164.991ZM245.98 70.5045H298.475C307.704 70.5045 314.301 69.5371 318.047 68.2531C321.951 66.9164 325.565 64.366 327.644 60.1007C329.504 56.2928 330.144 51.6757 330.144 46.2408C330.144 40.1639 329.372 35.9866 327.618 32.3897C325.863 28.7928 322.723 25.8818 318.021 24.2901C313.477 22.751 306.932 22.0651 298.475 22.0651H245.98V70.5045ZM245.98 143.164H303.23C311.687 143.164 317.942 142.434 322.872 140.613C327.635 138.863 331.197 136.04 333.11 132.364C335.022 128.688 335.926 124.071 335.926 117.836C335.926 111.759 334.978 106.79 332.908 103.114C330.829 99.438 327.399 96.7557 322.618 95.076C317.828 93.3962 311.371 92.5608 303.23 92.5608H245.98V143.164Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M415.301 164.991V0H443.163V140.578H542.117V164.991H415.301Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M581.908 164.991V0H710.865V22.0651H608.472V70.7507H699.531V92.8158H608.472V142.935H711.997V165H581.908V164.991Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+          </svg>
+          <p class="lg:text-2xl 2xl:text-[1.5vw] 2xl:leading-[1.5em]">
+            We elevate global businesses with award-winning UI/UX design that
+            create a frictionless user experience and builds brand loyalty.
+          </p>
+        </div>
+      </section>
+      <section
+        id="insights"
+        class="relative lg:px-8 lg:flex lg:gap-12 lg:flex-row-reverse lg:justify-between mb-20 2xl:px-[5vw] 2xl:gap-[8vw]"
+      >
+        <div class="lg:w-full">
+          <div
+            class="sticky w-full h-screen bg-enhance bg-center bg-cover bg-no-repeat flex flex-col items-start justify-center gap-3 py-6 px-8 md:px-16 top-0 insights-image-1"
+          >
+            <div
+              class="w-full h-full absolute top-0 left-0 opacity-0 bg-black -z-10 transparent-bg-1"
+            ></div>
+            <div class="opacity-0 insights-text-1">
+              <h2
+                class="text-[40px] font-semibold md:text-[64px] border-solid border-white border-opacity-25 border-b-[2px] 2xl:text-[4vw]"
+              >
+                Elevate<br />
+                design prominence
+              </h2>
+              <span class="text-[16px] md:text-[28px] 2xl:text-[2vw]"
+                >Case study</span
+              >
+            </div>
+          </div>
+          <div class="w-full h-screen"></div>
+          <div
+            class="sticky w-full h-screen bg-improve bg-center bg-cover bg-no-repeat flex flex-col items-start justify-center gap-3 py-6 px-8 md:px-16 top-0 insights-image-2"
+          >
+            <div
+              class="w-full h-full absolute top-0 left-0 opacity-0 bg-black -z-10 transparent-bg-2"
+            ></div>
+            <div class="opacity-0 insights-text-2">
+              <h2
+                class="text-[40px] font-semibold md:text-[64px] border-solid border-white border-opacity-25 border-b-[2px] 2xl:text-[4vw]"
+              >
+                Optimize<br />
+                development workflows
+              </h2>
+              <span class="text-[16px] md:text-[28px] 2xl:text-[2vw]"
+                >Case study</span
+              >
+            </div>
+          </div>
+          <div class="w-full h-screen"></div>
+          <div
+            class="sticky lw-full h-screen bg-increase bg-center bg-cover bg-no-repeat flex flex-col items-start justify-center gap-3 py-6 px-8 md:px-16 top-0 insights-image-3"
+          >
+            <div
+              class="w-full h-full absolute top-0 left-0 opacity-0 bg-black -z-10 transparent-bg-3"
+            ></div>
+            <div class="opacity-0 insights-text-3">
+              <h2
+                class="text-[40px] font-semibold md:text-[64px] border-solid border-white border-opacity-25 border-b-[2px] 2xl:text-[4vw]"
+              >
+                Boost<br />
+                your online presence
+              </h2>
+              <span class="text-[16px] md:text-[28px] 2xl:text-[2vw]"
+                >Case study</span
+              >
+            </div>
+          </div>
+          <div class="w-full h-screen"></div>
+        </div>
+        <div
+          class="sticky-two sticky bottom-0 w-full flex flex-col items-center bg-black py-4 md:py-8 lg:top-0 lg:bottom-auto lg:py-0 lg:justify-center lg:h-screen"
+        >
+          <svg
+            viewBox="0 0 712 165"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-[79px] w-[342px] max-w-full shrink-0 lg:h-[165px] lg:w-[712px] 2xl:w-[50vw] 2xl:h-[13vw]"
+          >
+            <path
+              d="M0.410156 164.991L72.4594 0H105.014L176.818 164.991H147.833L129.639 122.541H46.1504L27.4823 164.991H0.410156ZM55.4844 100.484H120.305L88.9518 23.9822H87.557L55.4844 100.484Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M219.408 164.991V0H307.116C319.082 0 328.653 1.69731 335.768 5.03038C342.514 8.18756 348.119 13.4114 351.392 19.6466C354.664 25.8818 356.103 32.0907 356.234 39.9704C356.374 48.2547 355.12 55.6244 353.33 59.9952C351.243 65.0784 348.146 69.5547 343.707 73.3363C340.268 76.2648 334.496 79.4044 329.32 80.3366V81.2952C338.092 82.8958 344.567 85.2263 349.62 89.3332C354.085 92.9565 357.664 97.6175 359.585 103.026C361.585 108.654 362.349 114.555 362.349 121.591C362.349 127.51 361.585 133.103 360.076 138.379C358.559 143.656 355.927 148.291 352.181 152.292C348.427 156.294 343.163 159.407 336.382 161.641C329.601 163.883 321.021 165 310.652 165H219.408V164.991ZM245.98 70.5045H298.475C307.704 70.5045 314.301 69.5371 318.047 68.2531C321.951 66.9164 325.565 64.366 327.644 60.1007C329.504 56.2928 330.144 51.6757 330.144 46.2408C330.144 40.1639 329.372 35.9866 327.618 32.3897C325.863 28.7928 322.723 25.8818 318.021 24.2901C313.477 22.751 306.932 22.0651 298.475 22.0651H245.98V70.5045ZM245.98 143.164H303.23C311.687 143.164 317.942 142.434 322.872 140.613C327.635 138.863 331.197 136.04 333.11 132.364C335.022 128.688 335.926 124.071 335.926 117.836C335.926 111.759 334.978 106.79 332.908 103.114C330.829 99.438 327.399 96.7557 322.618 95.076C317.828 93.3962 311.371 92.5608 303.23 92.5608H245.98V143.164Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M415.301 164.991V0H443.163V140.578H542.117V164.991H415.301Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+            <path
+              d="M581.908 164.991V0H710.865V22.0651H608.472V70.7507H699.531V92.8158H608.472V142.935H711.997V165H581.908V164.991Z"
+              fill="currentColor"
+              style="mix-blend-mode: difference"
+            ></path>
+          </svg>
+        </div>
+      </section>
+      <section
+        class="h-screen w-full flex flex-col justify-center items-start lg:px-32 2xl:px-[10vw] 2xl:mb-[8vw]"
+      >
+        <p
+          class="fading-paragraph text px-10 md:px-16 lg:px-8 mb-20 text-2xl md:text-3xl lg:text-4xl lg:w-[75%] lg:leading-[50px] 2lg:text-[3.5rem] 2lg:leading-[70px] 2lg:w-full 2xl:text-[5vw] 2xl:leading-[1.3em]"
+        >
+          <span class="opacity-0">We</span>
+          <span class="opacity-0">are</span>
+          <span class="opacity-0">building</span>
+          <span class="opacity-0">products</span>
+          <span class="opacity-0">that</span>
+          <span class="opacity-0">empower</span>
+          <span class="opacity-0">individuals</span>
+          <span class="opacity-0">and</span>
+          <span class="opacity-0">communities</span>
+          <span class="opacity-0">to</span>
+          <span class="opacity-0">take</span>
+          <span class="opacity-0">control</span>
+          <span class="opacity-0">of</span>
+          <span class="opacity-0">their</span>
+          <span class="opacity-0">digital</span>
+          <span class="opacity-0">lives</span>
+          <span class="opacity-0">and</span>
+          <span class="opacity-0">create</span>
+          <span class="opacity-0">a</span>
+          <span class="opacity-0">more</span>
+          <span class="opacity-0">equitable</span>
+          <span class="opacity-0">and</span>
+          <span class="opacity-0">just</span>
+          <span class="opacity-0">future.</span>
+        </p>
+      </section>
+      <section
+        id="awards"
+        class="flex flex-col items-center px-10 md:px-16 lg:px-32 mb-20 2xl:px-[10vw] 2xl:mb-[8vw]"
+      >
+        <h2
+          id="oui"
+          class="text-[40px] font-semibold mb-12 2xl:text-[3vw] 2xl:mb-[4vw]"
+        >
+          Awards
+        </h2>
+        <ul class="text-lg w-full lg:text-xl 2xl:text-[1.6vw]">
+          <li
+            class="py-6 border-white border-y-[1px] 2xl:border-y-[.1vw] border-solid 2xl:py-[1.4em]"
+          >
+            Design Award 2021, 2022, 2023
+          </li>
+          <li
+            class="py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.4em]"
+          >
+            CSS, JavaScript Award 2023
+          </li>
+          <li
+            class="py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.4em]"
+          >
+            Innovation CSS Award 2021, 2022
+          </li>
+          <li
+            class="py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.4em]"
+          >
+            Awards Honorable mention 2021
+          </li>
+          <li
+            class="py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.4em]"
+          >
+            Web Creativity Award nominee 2021
+          </li>
+        </ul>
+      </section>
+      <section
+        id="work"
+        class="flex flex-col items-center px-10 md:px-16 lg:px-32 mb-20 2xl:px-[10vw] 2xl:mb-[8vw]"
+      >
+        <h2 class="text-[40px] font-semibold pb-12 2xl:text-[3vw] 2xl:mb-[4vw]">
+          Work
+        </h2>
+        <div class="w-full h-[1px] bg-white mb-4 lg:mb-8"></div>
+        <div
+          class="md:flex md:justify-between md:gap-12 lg:w-full 2xl:gap-[6vw]"
+        >
+          <div class="flex flex-col lg:w-full">
+            <a
+              href="https://ayoubelbazzazi.vercel.app"
+              target="_blank"
+              class="mb-4"
+            >
+              <img src="./assets/portfolio.svg" class="w-full" alt="" />
+            </a>
+            <div class="flex flex-col">
+              <h4 class="text-[24px] 2xl:text-[1.8vw]">Portfolio website</h4>
+              <h4 class="opacity-80 2xl:text-[1.2vw]">NextJs, Firebase</h4>
+            </div>
+          </div>
+          <div class="flex flex-col lg:w-full">
+            <a
+              href="https://portfoliowebdesigntwo.netlify.app"
+              target="_blank"
+              class="mb-4"
+            >
+              <img src="./assets/ig.svg" class="w-full" alt="" />
+            </a>
+            <div class="flex flex-col">
+              <h4 class="text-[24px] 2xl:text-[1.8vw]">Investment group</h4>
+              <h4 class="opacity-80 2xl:text-[1.2vw]">
+                HTML, Tailwindcss, JavaScript
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="team"
+        class="flex flex-col items-center px-10 md:px-16 lg:px-32 mb-20 2xl:px-[10vw] 2xl:mb-[8vw]"
+      >
+        <h2 class="text-[40px] font-semibold pb-12 2xl:text-[3vw] 2xl:mb-[4vw]">
+          Team
+        </h2>
+        <div id="team-members" class="relative">
+          <ul
+            class="text-lg w-full lg:text-xl 2xl:text-[1.6vw] 2xl:leading-[2vw]"
+          >
+            <li
+              class="grid grid-cols-2 md:grid-cols-10 gap-2 py-6 border-white border-y-[1px] 2xl:border-y-[.1vw] border-solid 2xl:py-[1.2em]"
+            >
+              <span class="col-start-1">Humphrey Bogart</span>
+              <span class="col-start-3">Chairman & CEO</span>
+              <span class="col-start-1 col-span-3 md:col-start-5 md:col-span-6"
+                >20+ years experience on web development, 10+ years digital
+                marketing and integration experience</span
+              >
+            </li>
+            <li
+              class="grid grid-cols-2 md:grid-cols-10 gap-2 py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.2em]"
+            >
+              <span class="col-start-1">Clark Gable</span>
+              <span class="col-start-3">CDO, Partner</span>
+              <span class="col-start-1 col-span-3 md:col-start-5 md:col-span-6"
+                >15+ years experience on project management, 15+ years data
+                science</span
+              >
+            </li>
+            <li
+              class="grid grid-cols-2 md:grid-cols-10 gap-2 py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid 2xl:py-[1.2em]"
+            >
+              <span class="col-start-1">William Holden</span>
+              <span class="col-start-3">Creative Director</span>
+              <span class="col-start-1 col-span-3 md:col-start-5 md:col-span-6"
+                >20+ years web design, had taken part in national leadership
+                campaign website</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="contact" class="px-10 md:px-16 lg:px-32 mb-20 2xl:px-[10vw]">
+        <h2
+          class="text-[40px] font-semibold pb-12 lg:text-[64px] 2xl:text-[5vw] 2xl:mb-[4vw]"
+        >
+          Get in touch!<br class="hidden lg:block" />
+          We'd love to chat
+        </h2>
+        <form
+          action="GET"
+          class="flex flex-col border-b-[1px] 2xl:border-b-[.1vw] border-white border-solid pb-8 md:pb-12 2xl:text-[1.5vw] 2xl:pb-[5vh]"
+        >
+          <div
+            id="full_name"
+            class="grid grid-cols-3 md:grid-cols-8 gap-8 py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid border-opacity-50 2xl:py-[1.2em]"
+          >
+            <label class="md:col-span-2">Full name</label>
+            <input
+              class="col-span-2 md:col-start-3 md:col-span-6 bg-transparent outline-none w-full border-none text-white placeholder:text-white placeholder:opacity-50"
+              placeholder="Please type in your name"
+              type="text"
+            />
+          </div>
+          <div
+            id="email"
+            class="grid grid-cols-3 md:grid-cols-8 gap-8 py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid border-opacity-50 2xl:py-[1.2em]"
+          >
+            <label class="md:col-span-2">Email</label>
+            <input
+              class="col-span-2 md:col-start-3 md:col-span-6 bg-transparent outline-none w-full border-none text-white placeholder:text-white placeholder:opacity-50"
+              placeholder="Please type in your email"
+              type="email"
+            />
+          </div>
+          <div
+            id="company_name"
+            class="grid grid-cols-3 md:grid-cols-8 gap-8 py-6 border-white border-b-[1px] 2xl:border-b-[.1vw] border-solid border-opacity-50 2xl:py-[1.2em] 2xl:mb-[2vh]"
+          >
+            <label class="md:col-span-2">Compnay name</label>
+            <input
+              class="col-span-2 md:col-start-3 md:col-span-6 bg-transparent outline-none w-full border-none text-white placeholder:text-white placeholder:opacity-50"
+              placeholder="Please type in your company name"
+              type="text"
+            />
+          </div>
+          <div
+            id="message"
+            class="grid grid-cols-3 md:grid-cols-8 gap-8 py-6 2xl:mb-[2vh]"
+          >
+            <label class="md:col-span-2">Project wishes</label>
+            <textarea
+              class="col-span-2 md:col-start-3 md:col-span-6 bg-transparent outline-none w-full h-[100px] p-2 border-solid border-[1px] border-white border-opacity-50 text-white placeholder:text-white placeholder:opacity-50 md:h-[150px] 2xl:p-[1vw] 2xl:h-[25vh]"
+              placeholder="Please type in your projects requirements"
+              type="text"
+            ></textarea>
+          </div>
+          <button
+            class="self-end px-9 py-3 bg-white bg-opacity-20 2xl:px-[1.8em] 2xl:py-[.5em]"
+          >
+            Send
+          </button>
+        </form>
+      </section>
+    </main>
+    <footer
+      class="px-10 md:px-16 lg:px-32 flex flex-col gap-16 pb-12 md:flex-row md:justify-between 2xl:px-[10vw] 2xl:pb-[2vh]"
+    >
+      <ul
+        class="grid grid-cols-2 grid-rows-2 gap-y-4 text-lg md:order-2 md:gap-x-10 lg:grid-cols-4 lg:grid-rows-1 2xl:text-[1.4vw]"
+      >
+        <div class="flex items-center gap-2 2xl:gap-[1em]">
+          <span>Instagram</span>
+          <i
+            class="fa-solid fa-arrow-right transform -rotate-45 origin-center"
+          ></i>
+        </div>
+        <div class="flex items-center gap-2 2xl:gap-[1em]">
+          <span>Facebook</span>
+          <i
+            class="fa-solid fa-arrow-right transform -rotate-45 origin-center"
+          ></i>
+        </div>
+        <div class="flex items-center gap-2 2xl:gap-[1em]">
+          <span>Linkedin</span>
+          <i
+            class="fa-solid fa-arrow-right transform -rotate-45 origin-center"
+          ></i>
+        </div>
+        <div class="flex items-center gap-2 2xl:gap-[1em]">
+          <span>Medium</span>
+          <i
+            class="fa-solid fa-arrow-right transform -rotate-45 origin-center"
+          ></i>
+        </div>
+      </ul>
+      <div
+        class="flex justify-between items-center md:order-1 md:gap-8 2xl:gap-[2vw]"
+      >
+        <img
+          id="link-body"
+          src="./assets/logo.svg"
+          alt="logo"
+          class="w-[60px] cursor-pointer 2xl:w-[5vw]"
+        />
+        <span class="underline 2xl:text-[1.4vw]">Terms of service</span>
+      </div>
+    </footer>
+  </body>
+</html>

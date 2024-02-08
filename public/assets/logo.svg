@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="53" height="36" viewBox="0 0 53 36" fill="none"><link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link"/><link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link"/><style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style"/><style xmlns="" lang="en" type="text/css" id="dark-mode-native-style"/><style xmlns="" lang="en" type="text/css" id="dark-mode-native-sheet"/>
+<g id="Symbol">
+<g id="Vector">
+<path d="M25.868 14.7923L37.2235 0.0964716C37.2557 0.0482358 37.2396 0 37.1752 0H21.5835C21.5513 0 21.503 0.0160786 21.4869 0.0482358L0.0322142 26.4332C0.0161071 26.4654 0 26.4975 0 26.5297V35.9196C0 35.9678 0.0322142 36 0.0805355 36H9.42265C9.47097 36 9.50318 35.9839 9.51929 35.9518L25.4331 15.3551L37.9644 21.1916V14.7923H25.868Z" fill="white" style="mix-blend-mode:difference"/>
+</g>
+<g id="Vector_2">
+<path d="M38.0454 35.9834H51.9781C52.0264 35.9834 52.0586 35.9513 52.0586 35.9031V27.8155C52.0586 27.7673 52.0264 27.7351 51.9942 27.703L37.981 21.175V35.9031C37.9649 35.9513 37.9971 35.9834 38.0454 35.9834Z" fill="white" style="mix-blend-mode:difference"/>
+</g>
+<g id="Vector_3">
+<path d="M52.0565 14.728V0.080393C52.0565 0.0321572 52.0243 0 51.9759 0H38.0433C37.995 0 37.9628 0.0321572 37.9628 0.080393V14.7923H51.9759C52.0082 14.7923 52.0565 14.7602 52.0565 14.728Z" fill="white" style="mix-blend-mode:difference"/>
+</g>
+</g>
+<script xmlns="" type="text/javascript" src="chrome-extension://hejbmebodbijjdhflfknehhcgaklhano/../window/testing-library.js"/></svg>

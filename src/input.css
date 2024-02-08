@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --be-able-h:0px;
+        --height: calc(100vh - var(--be-able-h));
+    }
+
+    .custom-height {
+        height:calc(100vh - var(--be-able-h));
+    }
+}
+
+body.no-scroll {
+    overflow-y:hidden;
+}
+
+.counter {
+    --height:0;
+    height:calc(var(--height) * 1px)
+}
+
